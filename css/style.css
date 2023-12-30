@@ -3,8 +3,19 @@
 body {
   font-family: "poppins", sans-serif;
   color: #c8a74d;
-  background-color: black;
+  background:none;
   position: relative;
+}
+
+.vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px; /* Adjust the thickness of the line */
+  background:none;
+  color: #c8a74d;
 }
 
 body::after {
@@ -14,7 +25,7 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('./images/hiar.png');
+
   background-size: cover;
   background-position: center;
   opacity: 0.7; /* Adjust the opacity as needed */
@@ -86,7 +97,7 @@ body::after {
 
 #navbarSupportedContent {
   width: 100%;
-  background-color: black;
+  background: none ;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -767,7 +778,7 @@ a:focus {
 /* info section */
 .info_section {
   position: relative;
-  background-color: #2d2d2d;
+  background: none;
   color: #ffffff;
   margin: 0 45px 45px;
 }
@@ -887,7 +898,7 @@ a:focus {
 
 #brand-collection {
   padding: 20px; /* Add your desired padding */
-  background-color: #000000; /* Add your desired background color */
+  background: none; /* Add your desired background color */
 }
 
 .brand-image {
