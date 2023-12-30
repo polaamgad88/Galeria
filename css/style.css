@@ -117,7 +117,9 @@ body::after {
 #navbarSupportedContent .nav-item.active .nav-link {
   background-color: #000000;
   text-decoration: underline #c8a74d solid;
-  
+  text-decoration-thickness: 0.1em; /* Adjust the thickness as needed */
+  text-decoration-skip-ink: none; /* Ensures even spacing around the text */
+
 }
 
 a,
@@ -189,7 +191,7 @@ a:focus {
   display: block;
   width: 35px;
   height: 4px;
-  background-color: #000000;
+  background-color: #c8a74d;
   margin: 7px 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -205,7 +207,7 @@ a:focus {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #000000;
+  background-color: #c8a74d;
   top: -10px;
   border-radius: 5px;
   -webkit-transition: all .3s;
