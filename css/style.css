@@ -7,16 +7,7 @@ body {
   position: relative;
 }
 
-.vertical-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px; /* Adjust the thickness of the line */
-  background:none;
-  color: #c8a74d;
-}
+
 
 body::after {
   content: '';
@@ -663,23 +654,23 @@ a:focus {
   padding-left: 25px;
   background-color: transparent;
   outline: none;
-  color: #101010;
+  color: #bc9a5c;
 }
 
 .contact_section input::-webkit-input-placeholder {
-  color: #131313;
+  color: #bc9a5c;
 }
 
 .contact_section input:-ms-input-placeholder {
-  color: #131313;
+  color: #bc9a5c;
 }
 
 .contact_section input::-ms-input-placeholder {
-  color: #131313;
+  color: #bc9a5c;
 }
 
 .contact_section input::placeholder {
-  color: #131313;
+  color: #bc9a5c;
 }
 
 .contact_section input.message-box {

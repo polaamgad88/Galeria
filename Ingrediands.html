@@ -94,7 +94,7 @@
         <h2>
           Ingrediands
         </h2>
-        <p style="color:white; padding-top: 2%;"> Treatment of damaged hair because of chemical processses <br>for hair straighting compensate </p>
+        <p style="color:white; padding-top: 0%;"> Treatment of damaged hair because of chemical processses <br>for hair straighting compensate </p>
       </div>
       <div class="row">
        
@@ -112,38 +112,235 @@
 
   <!-- steps section -->
 
-  <section>
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <style>
+    .card {
+        position: relative;
+        width: 18rem;
+        height: 300px; /* Adjust the height as needed */
+        perspective: 1000px;
+        background: none;
+    }
 
-        <!-- First Row -->
-        <div class="card" style="width: 18rem; background: none; text-align: center;">
-            <img class="card-img-top" src="./images/ingrediant1.png" alt="Card image cap" style="background: none; border-radius: 20%;">
-            <div class="card-body" style="display: flex; flex-direction: column; align-items: center;">
-                <h5 class="card-title">Green Caviar</h5>
+    .card-inner {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+    }
+
+    .card:hover .card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .card-face,
+    .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 20%;
+        background: none;
+        text-align: center;
+        overflow: hidden; 
+    }
+
+    .card:hover .card-face {
+        background: none;
+    }
+
+    .card-back {
+        transform: rotateY(180deg);
+        background: none;
+    }
+</style>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; background: none; margin-right: 4%; margin-left: 4%; margin-top: 0%; ">
+
+  <!-- First Item -->
+
+
+  <div>
+    <div class="card">
+        <div class="card-inner">
+            <!-- Front Face -->
+            <div class="card-face" style="background-image: url('./images/ingrediant1.png');">
+                <div class="card-body">
+                </div>
+            </div>
+
+            <!-- Back Face -->
+            <div class="card-back">
+                <div class="card-body">
+                    <h5 class="card-title">a species of seaweed characterized by small, bead-like structures that resemble fish roe. It is native to the coastal regions of the Indo-Pacific and is commonly consumed as a nutritious food.</h5>
+                    <!-- Add more text or content here -->
+                </div>
             </div>
         </div>
-
-        <div class="card" style="width: 18rem; background: none; text-align: center;">
-            <img class="card-img-top" src="./images/ingrediant2.png" alt="Card image cap" style=" border-radius: 20%;">
-            <div class="card-body" style="display: flex; flex-direction: column; align-items: center;">
-                <h5 class="card-title">Amino Acids</h5>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem; background: none; text-align: center;">
-            <img class="card-img-top" src="./images/ingrediant1.png" alt="Card image cap" style=" border-radius: 20%;">
-            <div class="card-body" style="display: flex; flex-direction: column; align-items: center;">
-                <h5 class="card-title">Wheat Proteins</h5>
-            </div>
-        </div>
-
-        <!-- Second Row -->
-        
-        <!-- Add similar code for the next three ingredients -->
-
     </div>
-    <br><br><hr style="color: white;">
-</section>
+    <h3 style="text-align: center;">Green Caviar</h3>
+</div>
+
+
+<div>
+  <div class="card">
+      <div class="card-inner">
+          <!-- Front Face -->
+          <div class="card-face" style="background-image: url('./images/ingrediant1.png');">
+              <div class="card-body">
+              </div>
+          </div>
+
+          <!-- Back Face -->
+          <div class="card-back">
+              <div class="card-body">
+                  <h5 class="card-title">a species of seaweed characterized by small, bead-like structures that resemble fish roe. It is native to the coastal regions of the Indo-Pacific and is commonly consumed as a nutritious food.</h5>
+                  <!-- Add more text or content here -->
+              </div>
+          </div>
+      </div>
+  </div>
+  <h3 style="text-align: center;">Amino Acids</h3>
+</div>
+
+
+<div>
+  <div class="card">
+      <div class="card-inner">
+          <!-- Front Face -->
+          <div class="card-face" style="background-image: url('./images/ingrediant2.png');">
+              <div class="card-body">
+              </div>
+          </div>
+
+          <!-- Back Face -->
+          <div class="card-back">
+              <div class="card-body">
+                  <h5 class="card-title">a species of seaweed characterized by small, bead-like structures that resemble fish roe. It is native to the coastal regions of the Indo-Pacific and is commonly consumed as a nutritious food.</h5>
+                  <!-- Add more text or content here -->
+              </div>
+          </div>
+      </div>
+  </div>
+  <h3 style="text-align: center;">Wheat proteins</h3>
+</div>
+
+
+  <!-- Repeat similar code for the second item -->
+
+</div>
+
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; background: none;  margin-right: 4%; margin-left: 4%; margin-top: 0%; ">
+
+  <!-- First Item -->
+
+
+  <div>
+    <div class="card">
+        <div class="card-inner">
+            <!-- Front Face -->
+            <div class="card-face" style="background-image: url('./images/ingrediant2.png');">
+                <div class="card-body">
+                </div>
+            </div>
+
+            <!-- Back Face -->
+            <div class="card-back">
+                <div class="card-body">
+                    <h5 class="card-title">a species of seaweed characterized by small, bead-like structures that resemble fish roe. It is native to the coastal regions of the Indo-Pacific and is commonly consumed as a nutritious food.</h5>
+                    <!-- Add more text or content here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 style="text-align: center;">Corn proteins</h3>
+</div>
+
+
+<div>
+  <div class="card">
+      <div class="card-inner">
+          <!-- Front Face -->
+          <div class="card-face" style="background-image: url('./images/ingrediant1.png');">
+              <div class="card-body">
+              </div>
+          </div>
+
+          <!-- Back Face -->
+          <div class="card-back">
+              <div class="card-body">
+                  <h5 class="card-title">a species of seaweed characterized by small, bead-like structures that resemble fish roe. It is native to the coastal regions of the Indo-Pacific and is commonly consumed as a nutritious food.</h5>
+                  <!-- Add more text or content here -->
+              </div>
+          </div>
+      </div>
+  </div>
+  <h3 style="text-align: center;">Soy proteins</h3>
+</div>
+
+
+<div>
+  <div class="card">
+      <div class="card-inner">
+          <!-- Front Face -->
+          <div class="card-face" style="background-image: url('./images/ingrediant2.png');">
+              <div class="card-body">
+              </div>
+          </div>
+
+          <!-- Back Face -->
+          <div class="card-back">
+              <div class="card-body">
+                  <h5 class="card-title">a species of seaweed characterized by small, bead-like structures that resemble fish roe. It is native to the coastal regions of the Indo-Pacific and is commonly consumed as a nutritious food.</h5>
+                  <!-- Add more text or content here -->
+              </div>
+          </div>
+      </div>
+  </div>
+  <h3 style="text-align: center;">Rice proteins</h3>
+</div>
+
+
+  <!-- Repeat similar code for the second item -->
+
+</div>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; background: none;  margin-right: 4%; margin-left: 4%; margin-top: 0%; ">
+
+  <!-- First Item -->
+
+
+  <div>
+    <div class="card">
+        <div class="card-inner">
+            <!-- Front Face -->
+            <div class="card-face" style="background-image: url('./images/ingrediant1.png');">
+                <div class="card-body">
+                </div>
+            </div>
+
+            <!-- Back Face -->
+            <div class="card-back">
+                <div class="card-body">
+                    <h5 class="card-title">a species of seaweed characterized by small, bead-like structures that resemble fish roe. It is native to the coastal regions of the Indo-Pacific and is commonly consumed as a nutritious food.</h5>
+                    <!-- Add more text or content here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 style="text-align: center;">Vitamens</h3>
+</div>
+
+
+
+  <!-- Repeat similar code for the second item -->
+
+</div>
+
+
+  <br><br><hr style="color: white;">
+
+
 
 
   <!-- end steps section -->
