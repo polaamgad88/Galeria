@@ -100,7 +100,6 @@
       </nav>
     </header>
     <!-- end header section -->
-    <br><br>
 
 
     
@@ -113,11 +112,12 @@
 
   .box1 {
     min-height: 100vh; /* Adjust the minimum height as needed */
-    background: url('images/hero-background.jpg') center/cover no-repeat;
-    background-size: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-image 0.8s ease-in-out; /* Add transition effect for smooth image changes */
+    background-size: cover; /* Ensure the background image covers the entire container */
+
   }
 
   /* You can add media queries for more responsive adjustments */
@@ -128,12 +128,29 @@
   }
 </style>
 
+<script>
+  // JavaScript to change background image over time
+  document.addEventListener('DOMContentLoaded', function () {
+    var images = ['images/banner1.jpg', 'images/another_banner.jpg']; // Add additional image URLs
+    var index = 0;
+
+    function changeBackground() {
+      document.querySelector('.box1').style.backgroundImage = 'url("' + images[index] + '")';
+      index = (index + 1) % images.length;
+    }
+
+    // Change the background image every 5 seconds (5000 milliseconds)
+    setInterval(changeBackground, 5000);
+  });
+</script>
+
 <section class="saving_section1">
   <div class="box1">
     <!-- Your content goes here -->
   </div>
 </section>
 <!-- end hero section -->
+
 
   </div>
   <!-- end hero area -->
