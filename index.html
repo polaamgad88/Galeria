@@ -17,7 +17,8 @@
     Galeria
   </title>
 
-  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=FontName&display=swap">
+
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
@@ -103,7 +104,7 @@
 
 
     
-<!-- hero section -->
+<!-- hero section --><!-- hero section -->
 <style>
   .saving_section1 {
     position: relative;
@@ -117,13 +118,15 @@
     justify-content: center;
     transition: background-image 0.8s ease-in-out; /* Add transition effect for smooth image changes */
     background-size: cover; /* Ensure the background image covers the entire container */
-
   }
 
   /* You can add media queries for more responsive adjustments */
   @media (max-width: 768px) {
     .box1 {
       min-height: 50vh; /* Adjust the minimum height for mobile */
+    background-size: contain; /* Change background-size property for mobile view */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-position: center; /* Center the background image */
     }
   }
 </style>
@@ -149,6 +152,7 @@
     <!-- Your content goes here -->
   </div>
 </section>
+
 <!-- end hero section -->
 
 
@@ -187,6 +191,7 @@
   <!-- salon set section -->
   <section class="saving_section" >
     <div class="box" style="border-radius: 70px; background: url('images/salon set back.jpg')" >
+      <a href="./salon-set.html">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
@@ -197,22 +202,29 @@
                 <div class="col-lg-6">
                     <div class="detail-box" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
                         <div class="heading_container">
-                            <h2 style="color: black; padding-bottom: 8%;">
+                            <h2 style="color: black; padding-bottom: 8%; color: black;
+                            font-family: '97 Black condensed oblique', sans-serif;
+                            font-style: oblique; /* Ensure oblique style */
+                            font-weight: 1000; /* Adjust font weight as needed */
+                            color: #fde7bd;">
                                 Salon Set <br>
                             </h2>
                         </div>
-                        <p style="color: black;">
+                        <p style="color: black;  ">
                             Intelligent solutions <br> for hair brazilian protein 100%
                         </p>
+                        <!--
                         <div class="btn-box">
                             <a href="./salon-set.html" class="btn2">
                                 See More
                             </a>
                         </div>
+                      -->
                     </div>
                 </div>
             </div>
         </div>
+      </a>
     </div>
 </section>
 
@@ -227,7 +239,9 @@
     <!-- Home set section -->
 
     <section class="saving_section">
+
       <div class="box" style="border-radius: 70px; background-image: url(images/home\ set\ back.jpg);">
+        <a href="./home-set.html">
           <div class="container-fluid">
               <div class="row">
                   <div class="col-lg-6">
@@ -238,22 +252,30 @@
                   <div class="col-lg-6">
                       <div class="detail-box" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
                           <div class="heading_container">
-                              <h2 style="color: black; padding-bottom: 8%;">
+                              <h2 style="color: black; padding-bottom: 8%; color: black;
+                              font-family: '97 Black condensed oblique', sans-serif;
+                              font-style: oblique; /* Ensure oblique style */
+                              font-weight: 1000; /* Adjust font weight as needed */ 
+                              color: #916b2b;"
+                              >
                                   Home Set <br>
                               </h2>
                           </div>
                           <p style="color: black;">
                               Intelligent solutions <br> for hair brazilian protein 100%
                           </p>
+                          <!--
                           <div class="btn-box">
                               <a href="./home-set.html" class="btn2">
                                   See More
                               </a>
                           </div>
+                        -->
                       </div>
                   </div>
               </div>
           </div>
+        </a>
       </div>
   </section>
   
@@ -268,7 +290,7 @@
 
     <section class="saving_section " style="height: 105vh;">
       <a href="./Ingrediands.html">
-      <div class="box" style="border-radius:70px; background: url('images/caviar.png') center/cover no-repeat ;  height: 100%;" >
+      <div class="box" style="border-radius:70px; background: url('images/caviar.png') center/cover no-repeat ;  height: 90%;"  >
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-6">
