@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html > 
 
 <head>
   <!-- Basic -->
@@ -29,7 +29,7 @@
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
-<body style="background: url('images/body-background2.png') center no-repeat; background-color: black;">
+<body style="background: url('images/hiar.png') center no-repeat; background-color: black;" >
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -117,44 +117,118 @@
   </div>
 
 
-  <section id="card">
-    
-  </section>
+  <style>
+    .product-cards-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: max-content; /* Adjust the maximum width as needed */
+      margin: 40px;
+    }
+
+    .product-card {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 0px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .product-image {
+      flex: 0 0 50%;
+      margin-right: 20px;
+    }
+
+    .product-image img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .product-details {
+      flex: 1;
+    }
+
+    .product-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .product-description {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .progress-line {
+      position: absolute;
+      top: 0;
+      left: 40%; /* Adjust the left position based on image column width */
+      height: 100%;
+      width: 2px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<div class="product-cards-container">
+  <div class="product-card" id="shampoo">
+    <div class="product-image">
+      <img src="./images/p5.png" alt="Product Image">
+    </div>
+    <div class="product-details">
+      <div class="product-name">Product 1</div>
+      <div class="product-description">
+        This is the description of Product 1. Provide detailed information about the features and benefits.
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card" id="thermal">
+    <div class="product-image">
+      <img src="./images/p1.png" alt="Product Image">
+    </div>
+    <div class="product-details">
+      <div class="product-name">Product 2</div>
+      <div class="product-description">
+        This is the description of Product 2. Provide detailed information about the features and benefits.
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card" id="mask">
+    <div class="product-image">
+      <img src="./images/p2.png" alt="Product Image">
+    </div>
+    <div class="product-details">
+      <div class="product-name">Product 3</div>
+      <div class="product-description">
+        This is the description of Product 2. Provide detailed information about the features and benefits.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
   <!-- end hero area -->
 
   <!-- steps section -->
-
-  <section >
-   
-<div style="display: flex; justify-content: space-around;">
-  <div class="card" style="width: 18rem; background: none; text-align: center;">
-      <img class="card-img-top" src="/giftos-html/images/p5.png" alt="Card image cap" style="background-color: white; border-radius: 20%;">
-      <div class="card-body" style="display: flex; flex-direction: column; align-items: center;">
-          <h5 class="card-title">STEP 1</h5>
-          <h5 class="card-title" style="color: white;">Shampoo</h5>
+ <!-- salons section -->
+ <section id="brand-collection">
+  <h2 style="text-align: center; ">CERTIFIED SALONS</h2>
+  <div class="container">
+      <div class="brand-container" style="text-align: center;">
+          <img src="images/salons (1).png" alt="phone" class="brand-image">
+          <img src="images/salons (2).png " alt="phone" class="brand-image">
+          <img src="images/salons (3).png" alt="phone" class="brand-image">
       </div>
   </div>
+</section>
 
-  <!-- Repeat the card structure for the other two cards -->
-
-  <div class="card" style="width: 18rem; background: none; text-align: center;">
-      <img class="card-img-top" src="/giftos-html/images/p1.png" alt="Card image cap" style="background-color: white; border-radius: 20%;">
-      <div class="card-body" style="display: flex; flex-direction: column; align-items: center;">
-          <h5 class="card-title">STEP 2</h5>
-          <h5 class="card-title" style="color: white;">Thermal Sealant</h5>
-      </div>
-  </div>
-
-  <div class="card" style="width: 18rem; background: none; text-align: center;">
-      <img class="card-img-top" src="/giftos-html/images/p2.png" alt="Card image cap" style="background-color: white; border-radius: 20%;">
-      <div class="card-body" style="display: flex; flex-direction: column; align-items: center;">
-          <h5 class="card-title">STEP 3</h5>
-          <h5 class="card-title" style="color: white;">Mask</h5>
-      </div>
-  </div>
-</div>
-<br><br><hr style="color: white;">
-  </section>
+<!-- end salons section -->
 
 
   <!-- end steps section -->
