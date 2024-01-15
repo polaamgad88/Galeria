@@ -29,8 +29,8 @@
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
-<body style="background: url('images/hiar.png') center no-repeat; background-color: black;" >
-  <div class="hero_area">
+<body style="background-image: url('./images/cv.png') center no-repeat; background-color: black;" >
+  <div class="hero_area" >
     <!-- header section strats -->
     <header class="header_section">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -94,7 +94,7 @@
 
   <!--About Us section -->
 
-  <section class="why_section layout_padding">
+  <section class="why_section layout_padding" >
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -116,8 +116,14 @@
 
   </div>
 
-
   <style>
+    body {
+      background-image: url('./images/cv.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: black; /* Fallback color in case the image is not available */
+    }
+
     .product-cards-container {
       display: flex;
       flex-direction: column;
@@ -128,28 +134,29 @@
 
     .product-card {
       display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       position: relative;
-      padding: 0px;
+      padding: 20px; /* Adjust padding as needed */
       border-radius: 10px;
       margin-bottom: 20px;
     }
 
     .product-image {
-      flex: 0 0 50%;
-      margin-right: 20px;
-
+      flex: 0 0 80%; /* Adjusted image column width for mobile view */
+      margin-bottom: 20px;
     }
 
     .product-image img {
       width: 100%;
       border-radius: 8px;
-      background-color: white;
-      border-radius: 40%;
+      background-color: white; /* White background behind the product image */
     }
 
     .product-details {
       flex: 1;
+      text-align: center; /* Center text in the product details for mobile view */
     }
 
     .product-name {
@@ -166,51 +173,83 @@
     .progress-line {
       position: absolute;
       top: 0;
-      left: 40%; /* Adjust the left position based on image column width */
+      left: 50%; /* Adjust the left position based on image column width */
       height: 100%;
       width: 2px;
       background-color: #ccc;
     }
+
+    @media (min-width: 768px) {
+      .product-card {
+        flex-direction: row;
+        text-align: left;
+      }
+
+      .product-image {
+        flex: 0 0 40%; /* Restoring image column width for larger screens */
+        margin-bottom: 0;
+        margin-right: 20px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<div class="product-cards-container">
-  <div class="product-card" id="shampoo">
-    <div class="product-image">
-      <img src="./images/p5.png" alt="Product Image">
-    </div>
-    <div class="product-details">
-      <div class="product-name">Product 1</div>
-      <div class="product-description">
-        This is the description of Product 1. Provide detailed information about the features and benefits.
+  <div class="product-cards-container">
+    <div class="product-card" id="shampoo">
+      <div class="product-image">
+        <img src="./images/p5.png" alt="Product Image">
+      </div>
+      <div class="product-details">
+        <div class="product-name">SHAMPOO</div>
+        <div class="product-description">
+          <br>    <strong>First Step: <br> </strong> Hair fiber treatment Shampoo<br>
+          It was formulated to provide intelligent cleaning before and after blow-drying. Its formula cleans and
+          increases the strength and elasticity of weak and dry hairs that have gone through mechanical, thermal, and
+          chemical processes. The synergy of its active ingredients fixes the capillary porosity, preserving the
+          integrity, in addition to providing greater brightness refraction from the roots to the tips.<br><br>
+          <strong><br> How to Use:<br> </strong> Wash the hair with shampoo, gently massaging. Rinse and repeat the operation.
+          Remove excess water from hair with a towel.
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="product-card" id="thermal">
-    <div class="product-image">
-      <img src="./images/p1.png" alt="Product Image">
-    </div>
-    <div class="product-details">
-      <div class="product-name">Product 2</div>
-      <div class="product-description">
-        This is the description of Product 2. Provide detailed information about the features and benefits.
+
+  
+  <div class="product-cards-container">
+    <div class="product-card" id="shampoo">
+      <div class="product-image">
+        <img src="./images/p1.png" alt="Product Image">
+      </div>
+      <div class="product-details">
+        <div class="product-name">THERMAL SEALANT</div>
+        <div class="product-description">
+          <br>    <strong>Second Step: <br> </strong> <br>
+          It is a unique system of acidic proteins and amino acids compatible with the hair fiber that allow structural changes of the hair providing a reduction of volume and frizz and at the same time resets the protein matrix. It also provides benefits such as softness, shine and natural movement of the hair.​<br><br>
+          <strong><br> How to Use:<br> </strong> Wearing gloves, apply the Thermal Sealant on dry hair, on each hair section and fine each hair section to ensure the absorption and wetting of the entire strand. Dry the hairs with a hair dryer, aligning them. With the hair straightener heated to 200 degrees, use it 5 times on each hair sector to equalize the thermal activated substances of the formula. After a pause, rinse to remove the entire product.​
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="product-card" id="mask">
-    <div class="product-image">
-      <img src="./images/p2.png" alt="Product Image">
-    </div>
-    <div class="product-details">
-      <div class="product-name">Product 3</div>
-      <div class="product-description">
-        This is the description of Product 2. Provide detailed information about the features and benefits.
+  <div class="product-cards-container">
+    <div class="product-card" id="shampoo">
+      <div class="product-image">
+        <img src="./images/p2.png" alt="Product Image">
+      </div>
+      <div class="product-details">
+        <div class="product-name">MASK</div>
+        <div class="product-description">
+          <br>    <strong>Third Step: <br> </strong> To treat, strengthen and rejuvenate hair strands:​ <br>The Mask was developed from the concepts of molecular adhesion, which forms an amino structural matrix to increase the diameter of the aged strand and repair the damaged hair after the first use. The technology of the formula is considered a bio-capillary replenisher, which is able to greatly increase the strength and endurance, and to promote a significant increase in other vital characteristics for health and beauty of the hair such as: elasticity, suppleness, brightness, hydration, protection, repair and texture smoothing.​<br><br>
+          <strong><br> How to Use:<br> </strong> After washing the hair, apply the Mask treatment throughout the hair area, massaging gently. Glove each hair section, and let it act for 10 to 15 minutes. Rinse the hair removing the entire product. Finish as you wish.​
+        </div>
       </div>
     </div>
   </div>
+
+  
 </div>
 
 

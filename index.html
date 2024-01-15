@@ -53,6 +53,7 @@
         
           .navbar-brand img {
             animation: fadeIn 1s ease-in-out;
+            
           }
         </style>
         
@@ -104,7 +105,7 @@
 
 
     
-<!-- hero section --><!-- hero section -->
+<!-- hero section -->
 <style>
   .saving_section1 {
     position: relative;
@@ -118,19 +119,26 @@
     justify-content: center;
     transition: background-image 0.8s ease-in-out; /* Add transition effect for smooth image changes */
     background-size: cover; /* Ensure the background image covers the entire container */
-  }
-
-  /* You can add media queries for more responsive adjustments */
-  @media (max-width: 768px) {
-    .box1 {
-      min-height: 50vh; /* Adjust the minimum height for mobile */
-    background-size: contain; /* Change background-size property for mobile view */
     background-repeat: no-repeat; /* Prevent background image from repeating */
     background-position: center; /* Center the background image */
+  }
+
+  /* Adjustments for smaller screens */
+  @media (max-width: 1024px) {
+    .box1 {
+      min-height: 50vh; /* Adjust the minimum height for smaller screens */
+      background-size: contain; /* Change background-size property for smaller screens */
+    }
+  }
+  
+  /* Additional adjustments for iPad Air landscape orientation */
+  @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .box1 {
+      min-height: 75vh; /* Adjust the height for iPad Air landscape */
     }
   }
 </style>
-
+  
 <script>
   // JavaScript to change background image over time
   document.addEventListener('DOMContentLoaded', function () {
@@ -210,7 +218,7 @@
                                 Salon Set <br>
                             </h2>
                         </div>
-                        <p style="color: black;  ">
+                        <p style="color: white; font-size: 150%; ">
                             Intelligent solutions <br> for hair brazilian protein 100%
                         </p>
                         <!--
@@ -261,7 +269,7 @@
                                   Home Set <br>
                               </h2>
                           </div>
-                          <p style="color: black;">
+                          <p style="color: black; font-size: 150%;">
                               Intelligent solutions <br> for hair brazilian protein 100%
                           </p>
                           <!--
@@ -297,6 +305,7 @@
               </div>
               <div class="col-lg-6">
                 <div class="detail-box">
+                  
                   <div class="heading_container">
                     <h2 style="color: black; padding-bottom: 8%;">
                       <br>

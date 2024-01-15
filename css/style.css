@@ -2,7 +2,7 @@
 @import url("font-awesome.min.css");
 body {
   font-family: "poppins", sans-serif;
-  color: #c8a74d;
+  color: #fde8bd;
   background:none;
   position: relative;
 }
@@ -67,7 +67,7 @@ body::after {
 }
 
 .heading_container h2 span {
-  color: #c8a74d;
+  color: #fde8bd;
 }
 
 .heading_container.heading_center {
@@ -118,7 +118,7 @@ body::after {
 
 #navbarSupportedContent .nav-item.active .nav-link {
   background-color: #000000;
-  text-decoration: underline #c8a74d solid;
+  text-decoration: underline #fde8bd solid;
   text-decoration-thickness: 0.1em; /* Adjust the thickness as needed */
   text-decoration-skip-ink: none; /* Ensures even spacing around the text */
 
@@ -145,6 +145,7 @@ a:focus {
 .navbar-brand {
   margin: 15px 0;
   padding: 0;
+
 }
 
 .navbar-brand span {
@@ -193,7 +194,7 @@ a:focus {
   display: block;
   width: 35px;
   height: 4px;
-  background-color: #c8a74d;
+  background-color: #fde8bd;
   margin: 7px 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -209,7 +210,7 @@ a:focus {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #c8a74d;
+  background-color: #fde8bd;
   top: -10px;
   border-radius: 5px;
   -webkit-transition: all .3s;
