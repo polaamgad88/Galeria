@@ -114,16 +114,18 @@
       background-position: center;
       background-repeat: no-repeat;
       background-color: black; /* Fallback color in case the image is not available */
+     
     }
-
+  
     .product-cards-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       max-width: max-content; /* Adjust the maximum width as needed */
       margin: 40px;
+      padding-bottom: 10%;
     }
-
+  
     .product-card {
       display: flex;
       flex-direction: column;
@@ -134,34 +136,40 @@
       border-radius: 10px;
       margin-bottom: 20px;
     }
-
+  
     .product-image {
       flex: 0 0 80%; /* Adjusted image column width for mobile view */
       margin-bottom: 20px;
+      text-align: center; /* Center the image in mobile view */
     }
-
+  
     .product-image img {
-      width: 100%;
+      width: 100%; /* Set the image width to 100% for mobile view */
+      max-width: 70%; /* Limit the maximum width for better responsiveness */
       border-radius: 8px;
       background-color: white; /* White background behind the product image */
+      display: block; /* Center the image horizontally in mobile view */
+      margin: 0 auto; /* Center the image horizontally in mobile view */
     }
-
+  
     .product-details {
       flex: 1;
       text-align: center; /* Center text in the product details for mobile view */
     }
-
+  
     .product-name {
       font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 10px;
+      text-align: left;
     }
-
+  
     .product-description {
       font-size: 1rem;
       color: white;
+      text-align: left;
     }
-
+  
     .progress-line {
       position: absolute;
       top: 0;
@@ -170,13 +178,13 @@
       width: 2px;
       background-color: #ccc;
     }
-
+  
     @media (min-width: 768px) {
       .product-card {
         flex-direction: row;
         text-align: left;
       }
-
+  
       .product-image {
         flex: 0 0 40%; /* Restoring image column width for larger screens */
         margin-bottom: 0;
@@ -184,6 +192,7 @@
       }
     }
   </style>
+
 </head>
 
 <body>
