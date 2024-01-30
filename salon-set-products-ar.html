@@ -31,6 +31,70 @@
 </head>
 
 <body style="background-image: url('./images/cv.png') center no-repeat; background-color: black;">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <script>
+    function loadProducts() {
+      var productList = $('#productList');
+      productList.empty();
+      var url = 'https://zerofrizz.co.uk/api/products?website=galeria&product_set=Galeria Professional';
+      $.ajax({
+        url: url,
+        type: 'GET',
+        success: function (response) {
+          var productList = $('#productList');
+          productList.empty();
+          var products = response.data;
+          console.log(products)
+          if (products.length === 0) {
+            productList.append('<p>No products available.</p>');
+          } else {
+            products.forEach(function (product) {
+              var imagePath = product.images[0].replace('\\', '/');
+              var step = 0;
+              if (product.category == "Shampoo") {
+                step = "الأولى"
+              }
+              else if (product.category == "Conditioner") {
+                step = "الثانية"
+              }
+              else if (product.category == "Hair Mask") {
+                step = "الثالثة"
+              }
+              var listItem = `
+              <div class="product-cards-container">
+                <div class="product-card" id="`+ product.category + `">
+                  <div class="product-image">
+                    <img src="https://zerofrizz.co.uk/api/images/` + imagePath + `" alt="` + product.product_name_ar + `">
+                  </div>
+                  <div class="product-details">
+                    <div class="product-name">` + product.product_name_ar + `</div>
+                    <div class="product-description">
+                      <br> <strong>الخطوة `+ step + `: <br> </strong> ` + product.product_description_ar + `<br><br>
+                      <strong><br> طريقة الاستخدام:<br> </strong> `+ product.product_description2_ar + `
+                    </div>
+                  </div>
+                </div>
+              </div>
+              `
+              productList.append(listItem);
+            });
+            productList.append(`</div></div></div>`);
+          }
+        },
+        error: function (xhr, status, error) {
+          var productList = $('#productList');
+          productList.empty();
+          $('#productList').html('<p>Could not find any products.</p>');
+        }
+      });
+    }
+
+    $(document).ready(function () {
+      loadProducts()
+    });
+
+  </script>
   <div class="hero_area">
     <!-- header section strats -->
     <!-- header section strats -->
@@ -220,90 +284,11 @@
 
   <body>
 
-    <div class="product-cards-container">
-      <div class="product-card" id="Shampoo">
-        <div class="product-image">
-          <img src="./images/p5.png" alt="Product Image">
-        </div>
-        <div class="product-details">
-          <div class="product-name" style="direction: rtl;">شامبو</div>
-          <div class="product-description">
-            <br> <strong>الخطوة الأولى
-              <br> </strong> شامبو لمعالجة ألياف الشعر
-            <br>تم تصنيعه لينظف الشعر قبل وبعد التمليس بالبروتين. له تركيبة مميزة تنظف الشعر جيداً وتزيد من قوة ومرونة
-            الشعر الضعيف والجاف والتي ضعفت بسبب العمليات الميكانيكية والحرارية والكيميائية. تجانس مكوناته الفعالة يعمل
-            على معالجة مسامية ألياف الشعر، ويحافظ على سلامتها، بالإضافة إلى منحه للشعر أكبر قدر من اللمعان بدءاً من
-            الجذور وحتى الأطراف.
-            <br><br>
-            <strong><br> طريقة الاستعمال
-              <br> </strong> يُغسل الشعر بالشامبو مع تدليكه بلطف. يشطف جيداً بالماء وتكرر العملية. يتم إزالة الماء
-            الزائد من الشعر بمنشفة.
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="product-cards-container">
-      <div class="product-card" id="Conditioner">
-        <div class="product-image">
-          <img src="./images/p1.png" alt="Product Image">
-        </div>
-        <div class="product-details">
-          <div class="product-name">معالج حراري
-          </div>
-          <div class="product-description">
-            <br> <strong>الخطوة الثانية<br> معالج حراري لفرد الشعر
-            </strong> <br>
-            يتميز بنظام فريد للبروتينات الحمضية والأحماض الأمينية التي تتوافق مع ألياف الشعر فتسمح بالتغييرات الهيكلية
-            للشعر فتقلل من الهيشان والتجاعيد وفي نفس الوقت تعيد بناء روابط الشعر دون تكسيرها. كما أنه يمنح الشعر فوائد
-            متعددة مثل النعومة واللمعان والانسيابية.
-
-            <br><br>
-            <strong><br>طريقة الاستعمال
-              <br> </strong> باستخدام القفازات يتم وضعه على الشعر الجاف بعد تقسيمه إلى خصل صغيرة لضمان الامتصاص والترطيب
-            لكامل الشعر. قم بتجفيف الشعر بالسشوار. مع تسخين مكواة الشعر إلى 200 درجة مئوية، استخدمه 5 مرات على كل خصلة
-            للشعر لمساواة المواد الفعالة بالحرارة الموجودة في تركيبة المنتج. يُترك على الشعر لفترة قليلة، ثم يُشطف جيداً
-            بالماء لإزالة المنتج بالكامل.
-            ​
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-cards-container">
-      <div class="product-card" id="Hair Mask">
-        <div class="product-image">
-          <img src="./images/p2.png" alt="Product Image">
-        </div>
-        <div class="product-details">
-          <div class="product-name">ماسك</div>
-          <div class="product-description">
-            <br> <strong>الخطوة الثالثة <br>ماسك معالج مقاوم للتقصف
-            </strong>تم تطوير هذا الماسك بتكنولوجيا الالتصاق الجزيئي، الذي يقوي بنية الشعر ويزيد سمكه ويعالج الشعر
-            التالف بعد الاستخدام الأول. يعيد حيوية الشعر وبهذا يكون قادر على زيادة قوة وتحمل الشعر بشكل كبير، ويقوم
-            بتعزيز الخصائص الحيوية الأخرى لصحة وجمال الشعر مثل: الفرد، المرونة، اللمعان، الترطيب والحماية. يعمل كمضاد
-            لتقصف الشعر وله تأثير فعال في هذا المجال.
-            <br><br>
-            <strong><br> طريقة الاستعمال<br> </strong> بعد غسل الشعر، قم بوضع الماسك المعالج على الشعر ثم دلكه بلطف.
-            قسّم الشعر، واتركه يعمل لمدة 10 إلى 15 دقيقة. قم بشطف الشعر جيداً وإزالة المنتج بأكمله.
-            ​
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    </div>
-
-
-
-
-    <!-- end hero area -->
-
     <!-- steps section -->
+    <div id="productList">
+
+    </div>
+    <!-- end steps section -->
     <!-- salons section -->
     <section id="brand-collection">
       <h2 style="text-align: center; ">الصالونات المعتمدة</h2>
@@ -319,7 +304,7 @@
     <!-- end salons section -->
 
 
-    <!-- end steps section -->
+
     <!-- footer section -->
 
     <section class="info_section  layout_padding2-top" style="background:none ;">

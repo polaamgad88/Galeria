@@ -31,6 +31,69 @@
 </head>
 
 <body style="background-image: url('./images/cv.png') center no-repeat; background-color: black;">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function loadProducts() {
+      var productList = $('#productList');
+      productList.empty();
+      var url = 'https://zerofrizz.co.uk/api/products?website=galeria&product_set=Galeria Professional';
+      $.ajax({
+        url: url,
+        type: 'GET',
+        success: function (response) {
+          var productList = $('#productList');
+          productList.empty();
+          var products = response.data;
+          console.log(products)
+          if (products.length === 0) {
+            productList.append('<p>No products available.</p>');
+          } else {
+            products.forEach(function (product) {
+              var imagePath = product.images[0].replace('\\', '/');
+              var step = 0;
+              if (product.category == "Shampoo") {
+                step = "First"
+              }
+              else if (product.category == "Conditioner") {
+                step = "Second"
+              }
+              else if (product.category == "Hair Mask") {
+                step = "Third"
+              }
+              var listItem = `
+              <div class="product-cards-container">
+                <div class="product-card" id="`+ product.category + `">
+                  <div class="product-image">
+                    <img src="https://zerofrizz.co.uk/api/images/` + imagePath + `" alt="` + product.product_name + `">
+                  </div>
+                  <div class="product-details">
+                    <div class="product-name">` + product.product_name + `</div>
+                    <div class="product-description">
+                      <br> <strong>`+ step + ` Step: <br> </strong> ` + product.product_description + `<br><br>
+                      <strong><br> How to Use:<br> </strong> `+ product.product_description2 + `
+                    </div>
+                  </div>
+                </div>
+              </div>
+              `
+              productList.append(listItem);
+            });
+            productList.append(`</div></div></div>`);
+          }
+        },
+        error: function (xhr, status, error) {
+          var productList = $('#productList');
+          productList.empty();
+          $('#productList').html('<p>Could not find any products.</p>');
+        }
+      });
+    }
+
+    $(document).ready(function () {
+      loadProducts()
+    });
+
+  </script>
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -207,83 +270,12 @@
   </head>
 
   <body>
-
-    <div class="product-cards-container">
-      <div class="product-card" id="Shampoo">
-        <div class="product-image">
-          <img src="./images/p5.png" alt="Product Image">
-        </div>
-        <div class="product-details">
-          <div class="product-name">SHAMPOO</div>
-          <div class="product-description">
-            <br> <strong>First Step: <br> </strong> Hair fiber treatment Shampoo<br>
-            It was formulated to provide intelligent cleaning before and after blow-drying. Its formula cleans and
-            increases the strength and elasticity of weak and dry hairs that have gone through mechanical, thermal, and
-            chemical processes. The synergy of its active ingredients fixes the capillary porosity, preserving the
-            integrity, in addition to providing greater brightness refraction from the roots to the tips.<br><br>
-            <strong><br> How to Use:<br> </strong> Wash the hair with shampoo, gently massaging. Rinse and repeat the
-            operation.
-            Remove excess water from hair with a towel.
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="product-cards-container">
-      <div class="product-card" id="Conditioner">
-        <div class="product-image">
-          <img src="./images/p1.png" alt="Product Image">
-        </div>
-        <div class="product-details">
-          <div class="product-name">THERMAL SEALANT</div>
-          <div class="product-description">
-            <br> <strong>Second Step: <br> </strong> <br>
-            It is a unique system of acidic proteins and amino acids compatible with the hair fiber that allow
-            structural changes of the hair providing a reduction of volume and frizz and at the same time resets the
-            protein matrix. It also provides benefits such as softness, shine and natural movement of the hair.​<br><br>
-            <strong><br> How to Use:<br> </strong> Wearing gloves, apply the Thermal Sealant on dry hair, on each hair
-            section and fine each hair section to ensure the absorption and wetting of the entire strand. Dry the hairs
-            with a hair dryer, aligning them. With the hair straightener heated to 200 degrees, use it 5 times on each
-            hair sector to equalize the thermal activated substances of the formula. After a pause, rinse to remove the
-            entire product.​
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-cards-container">
-      <div class="product-card" id="Hair Mask">
-        <div class="product-image">
-          <img src="./images/p2.png" alt="Product Image">
-        </div>
-        <div class="product-details">
-          <div class="product-name">MASK</div>
-          <div class="product-description">
-            <br> <strong>Third Step: <br> </strong> To treat, strengthen and rejuvenate hair strands:​ <br>The Mask was
-            developed from the concepts of molecular adhesion, which forms an amino structural matrix to increase the
-            diameter of the aged strand and repair the damaged hair after the first use. The technology of the formula
-            is considered a bio-capillary replenisher, which is able to greatly increase the strength and endurance, and
-            to promote a significant increase in other vital characteristics for health and beauty of the hair such as:
-            elasticity, suppleness, brightness, hydration, protection, repair and texture smoothing.​<br><br>
-            <strong><br> How to Use:<br> </strong> After washing the hair, apply the Mask treatment throughout the hair
-            area, massaging gently. Glove each hair section, and let it act for 10 to 15 minutes. Rinse the hair
-            removing the entire product. Finish as you wish.​
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    </div>
-
-
-
-
-    <!-- end hero area -->
-
     <!-- steps section -->
+    <div id="productList">
+
+    </div>
+    <!-- end steps section -->
+
     <!-- salons section -->
     <section id="brand-collection">
       <h2 style="text-align: center; ">CERTIFIED SALONS</h2>
@@ -299,7 +291,7 @@
     <!-- end salons section -->
 
 
-    <!-- end steps section -->
+
 
     <!-- footer section -->
 
