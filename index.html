@@ -20,7 +20,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=FontName&display=swap">
 
   <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -29,14 +30,14 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-  
+
 </head>
 
 <body style="background: url('images/hiar.png') scroll center repeat; background-color: black;">
 
 
 
-  
+
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -46,24 +47,26 @@
             from {
               opacity: 0;
             }
+
             to {
               opacity: 1;
             }
           }
-        
+
           .navbar-brand img {
             animation: fadeIn 1s ease-in-out;
-            
+
           }
         </style>
-        
+
         <a class="navbar-brand" href="index.html">
           <span>
             <img src="images/galeria-logo.png" alt="" />
           </span>
         </a>
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class=""></span>
         </button>
 
@@ -91,10 +94,10 @@
 
 
           <div class="user_option">
-            
-              <button class="btn nav_search-btn"  ><a href="./index-ar.html">
-                  <img src="./images/egyflag.png" alt="Egypt Flag"  style="width: 24px; height: auto;"></a>
-              </button>
+
+            <button class="btn nav_search-btn"><a href="./index-ar.html">
+                <img src="./images/egyflag.png" alt="Egypt Flag" style="width: 24px; height: auto;"></a>
+            </button>
           </div>
         </div>
       </nav>
@@ -102,64 +105,72 @@
     <!-- end header section -->
 
 
-    
-<!-- hero section -->
-<style>
-  .saving_section1 {
-    position: relative;
-    overflow: hidden;
-  }
 
-  .box1 {
-    min-height: 100vh; /* Adjust the minimum height as needed */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-image 0.8s ease-in-out; /* Add transition effect for smooth image changes */
-    background-size: cover; /* Ensure the background image covers the entire container */
-    background-repeat: no-repeat; /* Prevent background image from repeating */
-    background-position: center; /* Center the background image */
-  }
+    <!-- hero section -->
+    <style>
+      .saving_section1 {
+        position: relative;
+        overflow: hidden;
+      }
 
-  /* Adjustments for smaller screens */
-  @media (max-width: 1024px) {
-    .box1 {
-      min-height: 50vh; /* Adjust the minimum height for smaller screens */
-      background-size: contain; /* Change background-size property for smaller screens */
-    }
-  }
-  
-  /* Additional adjustments for iPad Air landscape orientation */
-  @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-    .box1 {
-      min-height: 75vh; /* Adjust the height for iPad Air landscape */
-    }
-  }
-</style>
-  
-<script>
-  // JavaScript to change background image over time
-  document.addEventListener('DOMContentLoaded', function () {
-    var images = ['images/banner1.jpg', 'images/another_banner.jpg']; // Add additional image URLs
-    var index = 0;
+      .box1 {
+        min-height: 100vh;
+        /* Adjust the minimum height as needed */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-image 0.8s ease-in-out;
+        /* Add transition effect for smooth image changes */
+        background-size: cover;
+        /* Ensure the background image covers the entire container */
+        background-repeat: no-repeat;
+        /* Prevent background image from repeating */
+        background-position: center;
+        /* Center the background image */
+      }
 
-    function changeBackground() {
-      document.querySelector('.box1').style.backgroundImage = 'url("' + images[index] + '")';
-      index = (index + 1) % images.length;
-    }
+      /* Adjustments for smaller screens */
+      @media (max-width: 1024px) {
+        .box1 {
+          min-height: 50vh;
+          /* Adjust the minimum height for smaller screens */
+          background-size: contain;
+          /* Change background-size property for smaller screens */
+        }
+      }
 
-    // Change the background image every 5 seconds (5000 milliseconds)
-    setInterval(changeBackground, 5000);
-  });
-</script>
+      /* Additional adjustments for iPad Air landscape orientation */
+      @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+        .box1 {
+          min-height: 75vh;
+          /* Adjust the height for iPad Air landscape */
+        }
+      }
+    </style>
 
-<section class="saving_section1">
-  <div class="box1">
-    <!-- Your content goes here -->
-  </div>
-</section>
+    <script>
+      // JavaScript to change background image over time
+      document.addEventListener('DOMContentLoaded', function () {
+        var images = ['images/banner1.jpg', 'images/another_banner.jpg']; // Add additional image URLs
+        var index = 0;
 
-<!-- end hero section -->
+        function changeBackground() {
+          document.querySelector('.box1').style.backgroundImage = 'url("' + images[index] + '")';
+          index = (index + 1) % images.length;
+        }
+
+        // Change the background image every 5 seconds (5000 milliseconds)
+        setInterval(changeBackground, 5000);
+      });
+    </script>
+
+    <section class="saving_section1">
+      <div class="box1">
+        <!-- Your content goes here -->
+      </div>
+    </section>
+
+    <!-- end hero section -->
 
 
   </div>
@@ -169,19 +180,22 @@
 
   <!--About Us section -->
 
-  <section class="why_section layout_padding"  >
+  <section class="why_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
           About US
         </h2>
-        <p style="color:white; padding-top: 8%;"> Experts in hair straightening and treatment for damaged hair because of chemical processes. The results, in addition to combating opacity and dryness, are more resistant and stronger hair, as it acts directly on the hair fiber. Thanks to Green Caviar that is enriched with vitamins, fatty acids and ceramides to renew the hair fibers and protect the strands. </p>
+        <p style="color:white; padding-top: 8%;"> Experts in hair straightening and treatment for damaged hair because
+          of chemical processes. The results, in addition to combating opacity and dryness, are more resistant and
+          stronger hair, as it acts directly on the hair fiber. Thanks to Green Caviar that is enriched with vitamins,
+          fatty acids and ceramides to renew the hair fibers and protect the strands. </p>
       </div>
       <div class="row">
-       
-       
-        </div>
+
+
       </div>
+    </div>
     </div>
   </section>
 
@@ -190,44 +204,45 @@
 
 
   <!-- salon set section -->
-  <section class="saving_section" >
-    <div class="box" style="border-radius: 70px; background: url('images/salon set back.jpg')" >
+  <section class="saving_section">
+    <div class="box" style="border-radius: 70px; background: url('images/salon set back.jpg')">
       <a href="./salon-set.html">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="img-box">
-                        <img src="images/salon set1.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="detail-box" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <div class="heading_container">
-                            <h2 style="color: black; padding-bottom: 8%; color: black;
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="img-box">
+                <img src="images/salon set1.png" alt="">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="detail-box"
+                style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div class="heading_container">
+                  <h2 style="color: black; padding-bottom: 8%; color: black;
                             font-family: '97 Black condensed oblique', sans-serif;
                             font-style: oblique; /* Ensure oblique style */
                             font-weight: 1000; /* Adjust font weight as needed */
                             color: #fde7bd; font-size: 300%;">
-                                Salon Set <br>
-                            </h2>
-                        </div>
-                        <p style="color: white; font-size: 150%; ">
-                            Intelligent solutions <br> for hair brazilian protein 100%
-                        </p>
-                        <!--
+                    Salon Set <br>
+                  </h2>
+                </div>
+                <p style="color: white; font-size: 150%; ">
+                  Intelligent solutions <br> for hair brazilian protein 100%
+                </p>
+                <!--
                         <div class="btn-box">
                             <a href="./salon-set.html" class="btn2">
                                 See More
                             </a>
                         </div>
                       -->
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
       </a>
     </div>
-</section>
+  </section>
 
 
   <!-- end salon set section -->
@@ -237,89 +252,90 @@
 
 
 
-    <!-- Home set section -->
+  <!-- Home set section -->
 
-    <section class="saving_section">
+  <section class="saving_section">
 
-      <div class="box" style="border-radius: 70px; background-image: url(images/home\ set\ back.jpg);">
-        <a href="./home-set.html">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-lg-6">
-                      <div class="img-box">
-                          <img src="images/home set1.png" alt="">
-                      </div>
-                  </div>
-                  <div class="col-lg-6">
-                      <div class="detail-box" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                          <div class="heading_container">
-                              <h2 style=" padding-bottom: 8%;
+    <div class="box" style="border-radius: 70px; background-image: url(images/home\ set\ back.jpg);">
+      <a href="./home-set.html">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="img-box">
+                <img src="images/home set1.png" alt="">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="detail-box"
+                style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div class="heading_container">
+                  <h2 style=" padding-bottom: 8%;
                               font-family: '97 Black condensed oblique', sans-serif;
                               font-style: oblique; /* Ensure oblique style */
                               font-weight: 1000; /* Adjust font weight as needed */ 
-                              color: #916b2b; font-size: 300%;"
-                              >
-                                  Home Set <br>
-                              </h2>
-                          </div>
-                          <p style="color: black; font-size: 150%;">
-                              Intelligent solutions <br> for hair brazilian protein 100%
-                          </p>
-                          <!--
+                              color: #916b2b; font-size: 300%;">
+                    Home Set <br>
+                  </h2>
+                </div>
+                <p style="color: black; font-size: 150%;">
+                  Intelligent solutions <br> for hair brazilian protein 100%
+                </p>
+                <!--
                           <div class="btn-box">
                               <a href="./home-set.html" class="btn2">
                                   See More
                               </a>
                           </div>
                         -->
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </a>
-      </div>
-  </section>
-  
-  
-    <!-- Home  set section -->
-
-<br><br>
-
-    
-
-    <!-- ingrediants  section  -->
-
-    <section class="saving_section">
-      <a href="./Ingrediands.html">
-        <div class="box" style="border-radius: 90px; background: url('images/caviar\ copy.png') center/contain no-repeat; height: 100vh;">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-6">
-              </div>
-              <div class="col-lg-6">
-                <div class="detail-box">
-                  
-                  <div class="heading_container">
-                    <h2 style="color: black; padding-bottom: 8%;">
-                      <br>
-                    </h2>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </a>
-    </section>
-    
-  
-   <!-- ingrediants section -->
+    </div>
+  </section>
+
+
+  <!-- Home  set section -->
+
+  <br><br>
 
 
 
-    
+  <!-- ingrediants  section  -->
 
-    <!-- ingrediants  section test 
+  <section class="saving_section">
+    <a href="./Ingrediands.html">
+      <div class="box"
+        style="border-radius: 90px; background: url('images/caviar\ copy.png') center/contain no-repeat; height: 100vh;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+            </div>
+            <div class="col-lg-6">
+              <div class="detail-box">
+
+                <div class="heading_container">
+                  <h2 style="color: black; padding-bottom: 8%;">
+                    <br>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+
+  <!-- ingrediants section -->
+
+
+
+
+
+  <!-- ingrediants  section test 
 
     <section class="saving_section" style="padding-top: 36%;">
       <a href="./Ingrediands.html">
@@ -350,26 +366,26 @@
 
 
 
-        <!-- slider section -->
-<section id="slider">
-
-  
-</section>
+  <!-- slider section -->
+  <section id="slider">
 
 
-    <!-- salons section -->
-    <section id="brand-collection">
-      <h2 style="text-align: center; ">CERTIFIED SALONS</h2>
-      <div class="container">
-          <div class="brand-container" style="text-align: center;">
-              <img src="images/salons (1).png" alt="phone" class="brand-image">
-              <img src="images/salons (2).png " alt="phone" class="brand-image">
-              <img src="images/salons (3).png" alt="phone" class="brand-image">
-          </div>
-      </div>
   </section>
-  
-    <!-- end salons section -->
+
+
+  <!-- salons section -->
+  <section id="brand-collection">
+    <h2 style="text-align: center; ">CERTIFIED SALONS</h2>
+    <div class="container">
+      <div class="brand-container" style="text-align: center;">
+        <img src="images/salons (1).png" alt="phone" class="brand-image">
+        <img src="images/salons (2).png " alt="phone" class="brand-image">
+        <img src="images/salons (3).png" alt="phone" class="brand-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- end salons section -->
 
 
   <!-- contact section -->
@@ -387,7 +403,10 @@
         <div class="col-lg-7 col-md-6 px-0">
           <div class="map_container">
             <div class="map-responsive">
-              <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=4+E+Asmaa+Fahmy" width="600" height="300" frameborder="0" style="border:0; width: 100%; height:100%" allowfullscreen></iframe>
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=4+E+Asmaa+Fahmy"
+                width="600" height="300" frameborder="0" style="border:0; width: 100%; height:100%"
+                allowfullscreen></iframe>
             </div>
 
           </div>
@@ -395,28 +414,30 @@
         <div class="col-md-6 col-lg-5 px-0">
 
           <style>
-            form input::placeholder {color: #c8a74d;}
+            form input::placeholder {
+              color: #c8a74d;
+            }
           </style>
 
-        <form action="#">
-    <div>
-      <input type="text" placeholder="Name" />
-    </div>
-    <div>
-      <input type="email" placeholder="Email" />
-    </div>
-    <div>
-      <input type="text" placeholder="Phone" />
-    </div>
-    <div>
-      <input type="text" class="message-box" placeholder="Message" />
-    </div>
-    <div class="d-flex">
-      <button>
-        SEND
-      </button>
-    </div>
-  </form>
+          <form action="#">
+            <div>
+              <input type="text" placeholder="Name" />
+            </div>
+            <div>
+              <input type="email" placeholder="Email" />
+            </div>
+            <div>
+              <input type="text" placeholder="Phone" />
+            </div>
+            <div>
+              <input type="text" class="message-box" placeholder="Message" />
+            </div>
+            <div class="d-flex">
+              <button>
+                SEND
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -427,15 +448,15 @@
 
 
 
-    <section>
+  <section>
 
-      <!-- Your existing content -->
-  
-      <div class="vertical-line"></div>
+    <!-- Your existing content -->
+
+    <div class="vertical-line"></div>
   </section>
 
   <!-- info section -->
-    <!-- footer section -->
+  <!-- footer section -->
 
   <section class="info_section  layout_padding2-top" style="background:none ;">
     <div class="social_container">
@@ -443,21 +464,22 @@
         <a href="https://www.facebook.com/people/Galeria-Professional/100088391574757/" target="_blank">
           <i class="fa fa-facebook" aria-hidden="true"></i>
         </a>
-    
+
         <a href="https://www.instagram.com/galeriaprofessional/" target="_blank">
           <i class="fa fa-instagram" aria-hidden="true"></i>
         </a>
-   
-        
+
+
         <a href="https://www.tiktok.com/@galeriaprofessional?lang=en" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512" style="fill: white; margin-right: 10px;">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512"
+            style="fill: white; margin-right: 10px;">
             <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 
-            52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/>
+            52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
           </svg>
         </a>
       </div>
     </div>
-    
+
     <div class="info_container ">
       <div class="container">
         <div class="row">
@@ -466,26 +488,27 @@
               ABOUT US
             </h6>
             <p>
-              Experts in hair straightening and treatment for damaged hair because of chemical processes. The results, in addition to combating opacity and dryness, are more stronger hair, as it acts directly on the hair.</p>
+              Experts in hair straightening and treatment for damaged hair because of chemical processes. The results,
+              in addition to combating opacity and dryness, are more stronger hair, as it acts directly on the hair.</p>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="info_form ">
-             
-             
+
+
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <h6>Important Links</h6>
             <ul style="line-height: 2;">
-              
-              <li > <a style="color:  white;" href="./index.html">Home</a></li>
-              <li > <a style="color:  white;" href="./salon-set.html">Salon Set</a></li>
-              <li > <a style="color:  white;" href="./home-set.html">Home Set</a></li>
-              <li > <a style="color:  white;" href="./Ingrediands.html">Ingredients</a></li>
+
+              <li> <a style="color:  white;" href="./index.html">Home</a></li>
+              <li> <a style="color:  white;" href="./salon-set.html">Salon Set</a></li>
+              <li> <a style="color:  white;" href="./home-set.html">Home Set</a></li>
+              <li> <a style="color:  white;" href="./Ingrediands.html">Ingredients</a></li>
 
             </ul>
           </div>
-          
+
           <div class="col-md-6 col-lg-3">
             <h6>
               CONTACT US
@@ -522,7 +545,7 @@
       </div>
     </div>
 
-    
+
     <!-- footer section -->
 
   </section>
