@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html > 
+<html>
 
 <head>
   <!-- Basic -->
@@ -18,7 +18,8 @@
   </title>
 
   <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -29,76 +30,132 @@
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
-<body style="background-image: url('./images/cv.png') center no-repeat; background-color: black;" >
-  <div class="hero_area" >
+<body style="background-image: url('./images/cv.png') center no-repeat; background-color: black;">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function loadProducts() {
+      var productList = $('#productList');
+      productList.empty();
+      var url = 'https://zerofrizz.co.uk/api/products?website=galeria&product_set=Galeria Professional Home';
+      $.ajax({
+        url: url,
+        type: 'GET',
+        success: function (response) {
+          var productList = $('#productList');
+          productList.empty();
+          var products = response.data;
+          console.log(products)
+          if (products.length === 0) {
+            productList.append('<p>No products available.</p>');
+          } else {
+            products.forEach(function (product) {
+              var imagePath = product.images[0].replace('\\', '/');
+              var listItem = `
+              <div class="product-cards-container">
+                <div class="product-card" id="`+ product.category + `">
+                  <div class="product-image">
+                    <img src="https://zerofrizz.co.uk/api/images/` + imagePath + `" alt="` + product.product_name + `">
+                  </div>
+                  <div class="product-details">
+                    <div class="product-name">`+ product.product_name + `</div>
+                    <div class="product-description">
+                      <br> <strong>description : <br> </strong> `+ product.product_description + `
+                      <br><br>
+                      <strong><br> How to Use:<br> </strong> `+ product.product_description2 + `
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        `
+              productList.append(listItem);
+            });
+            productList.append(`</div></div></div>`);
+          }
+        },
+        error: function (xhr, status, error) {
+          var productList = $('#productList');
+          productList.empty();
+          $('#productList').html('<p>Could not find any products.</p>');
+        }
+      });
+    }
+
+    $(document).ready(function () {
+      loadProducts()
+    });
+
+  </script>
+  <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
-            <span>
-              <img src="images/galeria-logo.png" alt="" />
-            </span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""></span>
-          </button>
-  
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ">
-              <li class="nav-item ">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="salon-set.html">
-                  Salon Set
-                </a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="home-set.html">
-                  Home Set 
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Ingrediands.html">
-                  Ingrediant
-                </a>
-              </li>
-            </ul>
-  
-  
-            <div class="user_option">
-            
-              <button class="btn nav_search-btn"  ><a href="./home-set-products-ar.html">
-                  <img src="./images/egyflag.png" alt="Egypt Flag"  style="width: 24px; height: auto;"></a>
-              </button>
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="index.html">
+          <span>
+            <img src="images/galeria-logo.png" alt="" />
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav  ">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="salon-set.html">
+                Salon Set
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="home-set.html">
+                Home Set
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Ingrediands.html">
+                Ingrediant
+              </a>
+            </li>
+          </ul>
+
+
+          <div class="user_option">
+
+            <button class="btn nav_search-btn"><a href="./home-set-products-ar.html">
+                <img src="./images/egyflag.png" alt="Egypt Flag" style="width: 24px; height: auto;"></a>
+            </button>
           </div>
-          </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
+    </header>
     <!-- end header section -->
 
 
 
 
-    
 
-  <!--About Us section -->
 
-  <section class="why_section layout_padding" >
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          HOME SET
-        </h2>
-        <p style="color:white; padding-top: 2
+    <!--About Us section -->
+
+    <section class="why_section layout_padding">
+      <div class="container">
+        <div class="heading_container heading_center">
+          <h2>
+            HOME SET
+          </h2>
+          <p style="color:white; padding-top: 2
         1%;"> Treatment of damaged hair because of chemical processses <br>for hair straighting compensate </p>
-      </div>
-      <div class="row">
-       
-       
+        </div>
+        <div class="row">
+
+
         </div>
       </div>
-    </div>
+  </div>
   </section>
 
   <!--About Us section -->
@@ -111,274 +168,152 @@
       background-image: url('./images/cv.png');
       background-position: center;
       background-repeat: no-repeat;
-      background-color: black; /* Fallback color in case the image is not available */
-     
+      background-color: black;
+      /* Fallback color in case the image is not available */
+
     }
-  
+
     .product-cards-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: max-content; /* Adjust the maximum width as needed */
+      max-width: max-content;
+      /* Adjust the maximum width as needed */
       margin: 40px;
       padding-bottom: 10%;
     }
-  
+
     .product-card {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 20px; /* Adjust padding as needed */
+      padding: 20px;
+      /* Adjust padding as needed */
       border-radius: 10px;
       margin-bottom: 20px;
     }
-  
+
     .product-image {
-      flex: 0 0 80%; /* Adjusted image column width for mobile view */
+      flex: 0 0 80%;
+      /* Adjusted image column width for mobile view */
       margin-bottom: 20px;
-      text-align: center; /* Center the image in mobile view */
+      text-align: center;
+      /* Center the image in mobile view */
     }
-  
+
     .product-image img {
-      width: 100%; /* Set the image width to 100% for mobile view */
-      max-width: 70%; /* Limit the maximum width for better responsiveness */
+      width: 100%;
+      /* Set the image width to 100% for mobile view */
+      max-width: 70%;
+      /* Limit the maximum width for better responsiveness */
       border-radius: 8px;
-      background-color: white; /* White background behind the product image */
-      display: block; /* Center the image horizontally in mobile view */
-      margin: 0 auto; /* Center the image horizontally in mobile view */
+      background-color: white;
+      /* White background behind the product image */
+      display: block;
+      /* Center the image horizontally in mobile view */
+      margin: 0 auto;
+      /* Center the image horizontally in mobile view */
     }
-  
+
     .product-details {
       flex: 1;
-      text-align: center; /* Center text in the product details for mobile view */
+      text-align: center;
+      /* Center text in the product details for mobile view */
     }
-  
+
     .product-name {
       font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 10px;
       text-align: left;
     }
-  
+
     .product-description {
       font-size: 1rem;
       color: white;
       text-align: left;
     }
-  
+
     .progress-line {
       position: absolute;
       top: 0;
-      left: 50%; /* Adjust the left position based on image column width */
+      left: 50%;
+      /* Adjust the left position based on image column width */
       height: 100%;
       width: 2px;
       background-color: #ccc;
     }
-  
+
     @media (min-width: 768px) {
       .product-card {
         flex-direction: row;
         text-align: left;
       }
-  
+
       .product-image {
-        flex: 0 0 40%; /* Restoring image column width for larger screens */
+        flex: 0 0 40%;
+        /* Restoring image column width for larger screens */
         margin-bottom: 0;
         margin-right: 20px;
       }
     }
   </style>
 
-</head>
+  </head>
 
-<body>
+  <body>
 
-  <div class="product-cards-container">
-    <div class="product-card" id="cl-shampoo">
-      <div class="product-image">
-        <img src="./images/p3.png" alt="Product Image">
-      </div>
-      <div class="product-details">
-        <div class="product-name">CLARIFYING SHAMPOO</div>
-        <div class="product-description">
-          <br>    <strong>First Step: <br> </strong> FOR HAIR THAT WENT THROUGH CHEMICAL PROCESSES.
-          CONTAINS AMINO ACIDS.
-          <br>
-          It increase resistance and elasticity of hair that went through chemical processes, such as hair straightening, relaxation, as well as Brazilian blowouts. The synergy of its active ingredients corrects the capillary porosity, preserving the integrity, besides providing a higher refraction of brightness from the root to the ends.
-<br><br>
-          <strong><br> How to Use:<br> </strong> Wash the hair with shampoo, gently massaging. Rinse and repeat the operation.
+    <div id="productList">
 
-        </div>
-      </div>
     </div>
-  </div>
 
+    <!-- end hero area -->
 
-
-  
-
-  <div class="product-cards-container">
-    <div class="product-card" id="condationer">
-      <div class="product-image">
-        <img src="./images/p4.png" alt="Product Image">
-      </div>
-      <div class="product-details">
-        <div class="product-name">CONDITIONER
-        </div>
-        <div class="product-description">
-          <br>    <strong>MOISTURIZES HAIR WHILE
-            PROTECTING COLOR.
-            STRENGTH & FLEXIBILITY.
-             <br> </strong>Advanced technology to recover the vitality of 
-             the strands that went through chemical processes, such as Brazilian blowout, straightening, and relaxation.
-              Its formulation was specifically developed to restore hair damaged by chemical processes, providing resistance 
-              and restoring the natural flexibility of your hair, as well as repairing the capillary fiber day after day. <br><br>
-          <strong><br> How to Use:<br> </strong> After wash, apply the Conditioner massaging softly through the entire hair and scalp. Leave for 3 to 5 minutes and rinse out, removing the product.
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="product-cards-container">
-    <div class="product-card" id="mask">
-      <div class="product-image">
-        <img src="./images/p7.png" alt="Product Image">
-      </div>
-      <div class="product-details" >
-        <div class="product-name">TREATMENT MASK
-
-        </div>
-        <div class="product-description">
-          <br>    <strong>ANTI-BREAKAGE
-            HAIR FIBER REPAIRING 
-            STRENGTH & FLEXIBILITY
-            LONG LASTING HYDRATION..
-            
-             <br> </strong>It was developed with structural amino matrix to increase the diameter of thickness the hair and repair it from damages right from the first use. The technology used in the formula is able to increase strength and resistance considerably, besides promoting elasticity, pliability, brightness, hydration, protection, texture repair and smoothing.
-                 <br><br>
-          <strong><br> How to Use:<br> </strong> After washing the hair, apply the Ultimate Protein Hydration, massaging softly. Cover on each hair section. letting it act for 10 to 15 minutes and rinse. Finish the style as you wish.
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-  <div class="product-cards-container">
-    <div class="product-card" id="hair-serum">
-      <div class="product-image">
-        <img src="./images/p8.png" alt="Product Image">
-      </div>
-      <div class="product-details">
-        <div class="product-name">HAIR SERUM
-            Frizz Control
-            
-
-        </div>
-        <div class="product-description">
-          <br>   
-            
-         </strong>Green Caviar is rich in vitamins, proteins and nutrients, so it nourishes hair, promotes its growth and gives it shine and healthy appearance.  It helps get rid of split ends. Vitamin E promotes scalp circulation and restores moisture. Argan Oil infuses deep into the hair and locks in moisture to help reconstruct damaged hair leaving a soft, shiny, and frizz-free hair. 
-
-                 <br><br>
-          <strong><br> How to Use:<br> </strong>Use on wet or dry hair. Pump a dime size amount into your palm and rub hands together, and apply to hair. Do not rinse out and style as usual.
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <div class="product-cards-container">
-    <div class="product-card" id="d-condaitioner">
-      <div class="product-image">
-        <img src="./images/p6.png" alt="Product Image">
-      </div>
-      <div class="product-details">
-        <div class="product-name">Detangling Conditioner
-            Leave-in
-            </div>
-        <div class="product-description">
-          <br>    <strong>With Green Caviar, Coconut Oil & Natural Keratin 
-            <br> </strong> FOR HAIR THAT WENT THROUGH CHEMICAL PROCESSES.
-          CONTAINS AMINO ACIDS.
-          <br>
-          Who has time to battle those irritating knots and tangles that crop up every time you wash your hair? Detangling Conditioner with Green Caviar for normal and dry hair. Enriched with Green Caviar that provides the hair with moisture, vitamins and nutrients.  Coconut oil is the best detangler for hair as it repairs the fibers from the inside and coats the hair from the outside for easy to comb and shiny smooth hair. On top of Natural Keratin, that provides smoothness. 
-
-<br><br>
-          <strong><br> How to Use:<br> </strong> Shake well before use. Spray generously 5-10 cm away from mid shaft to ends. Use on damp hair before blow-dry to protect and condition your hair. For instant shine and finish, you can spray on evenly throughout dry hair. Do not rinse out. 
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-  <!-- end hero area -->
-
-  <!-- steps section -->
- <!-- salons section -->
- <section id="brand-collection">
-  <h2 style="text-align: center; ">CERTIFIED SALONS</h2>
-  <div class="container">
-      <div class="brand-container" style="text-align: center;">
+    <!-- steps section -->
+    <!-- salons section -->
+    <section id="brand-collection">
+      <h2 style="text-align: center; ">CERTIFIED SALONS</h2>
+      <div class="container">
+        <div class="brand-container" style="text-align: center;">
           <img src="images/salons (1).png" alt="phone" class="brand-image">
           <img src="images/salons (2).png " alt="phone" class="brand-image">
           <img src="images/salons (3).png" alt="phone" class="brand-image">
+        </div>
       </div>
-  </div>
-</section>
+    </section>
 
-<!-- end salons section -->
+    <!-- end salons section -->
 
 
-  <!-- end steps section -->
+    <!-- end steps section -->
 
     <!-- footer section -->
 
-  
+
     <section class="info_section  layout_padding2-top" style="background:none ;">
       <div class="social_container">
         <div class="social_box">
           <a href="https://www.facebook.com/people/Galeria-Professional/100088391574757/" target="_blank">
             <i class="fa fa-facebook" aria-hidden="true"></i>
           </a>
-      
+
           <a href="https://www.instagram.com/galeriaprofessional/" target="_blank">
             <i class="fa fa-instagram" aria-hidden="true"></i>
           </a>
-     
-          
+
+
           <a href="https://www.tiktok.com/@galeriaprofessional?lang=en" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512" style="fill: white; margin-right: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512"
+              style="fill: white; margin-right: 10px;">
               <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 
-              52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/>
+              52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
             </svg>
           </a>
         </div>
       </div>
-      
+
       <div class="info_container ">
         <div class="container">
           <div class="row">
@@ -387,26 +322,28 @@
                 ABOUT US
               </h6>
               <p>
-                Experts in hair straightening and treatment for damaged hair because of chemical processes. The results, in addition to combating opacity and dryness, are more stronger hair, as it acts directly on the hair.</p>
+                Experts in hair straightening and treatment for damaged hair because of chemical processes. The results,
+                in addition to combating opacity and dryness, are more stronger hair, as it acts directly on the hair.
+              </p>
             </div>
             <div class="col-md-6 col-lg-3">
               <div class="info_form ">
-               
-               
+
+
               </div>
             </div>
             <div class="col-md-6 col-lg-3">
               <h6>Important Links</h6>
               <ul style="line-height: 2;">
-                
-                <li > <a style="color:  white;" href="./index.html">Home</a></li>
-                <li > <a style="color:  white;" href="./salon-set.html">Salon Set</a></li>
-                <li > <a style="color:  white;" href="./home-set.html">Home Set</a></li>
-                <li > <a style="color:  white;" href="./Ingrediands.html">Ingredients</a></li>
-  
+
+                <li> <a style="color:  white;" href="./index.html">Home</a></li>
+                <li> <a style="color:  white;" href="./salon-set.html">Salon Set</a></li>
+                <li> <a style="color:  white;" href="./home-set.html">Home Set</a></li>
+                <li> <a style="color:  white;" href="./Ingrediands.html">Ingredients</a></li>
+
               </ul>
             </div>
-            
+
             <div class="col-md-6 col-lg-3">
               <h6>
                 CONTACT US
@@ -419,22 +356,22 @@
                 <a href="">
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   <span>02 21825000
-  
+
                   </span>
                 </a>
-  
+
                 <a href="">
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   <span>01222347852
-  
-  
-  
+
+
+
                   </span>
                 </a>
                 <a href="">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
                   <span> info@cristalegypt.com
-  
+
                   </span>
                 </a>
               </div>
@@ -442,21 +379,21 @@
           </div>
         </div>
       </div>
-  
-      
+
+
       <!-- footer section -->
-  
+
     </section>
-  
-  
 
 
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <script src="js/custom.js"></script>
 
-</body>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <script src="js/custom.js"></script>
+
+  </body>
 
 </html>

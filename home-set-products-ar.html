@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html > 
+<html>
 
 <head>
   <!-- Basic -->
@@ -18,7 +18,8 @@
   </title>
 
   <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -29,8 +30,63 @@
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
-<body style="background-image: url('./images/cv.png') center no-repeat; background-color: black;" >
-  <div class="hero_area" >
+<body style="background-image: url('./images/cv.png') center no-repeat; background-color: black;">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function loadProducts() {
+      var productList = $('#productList');
+      productList.empty();
+      var url = 'https://zerofrizz.co.uk/api/products?website=galeria&product_set=Galeria Professional Home';
+      $.ajax({
+        url: url,
+        type: 'GET',
+        success: function (response) {
+          var productList = $('#productList');
+          productList.empty();
+          var products = response.data;
+          console.log(products)
+          if (products.length === 0) {
+            productList.append('<p>No products available.</p>');
+          } else {
+            products.forEach(function (product) {
+              var imagePath = product.images[0].replace('\\', '/');
+              var listItem = `
+              <div class="product-cards-container">
+                <div class="product-card" id="`+ product.category + `">
+                  <div class="product-image">
+                    <img src="https://zerofrizz.co.uk/api/images/` + imagePath + `" alt="` + product.product_name_ar + `">
+                  </div>
+                  <div class="product-details">
+                    <div class="product-name">`+ product.product_name_ar + `</div>
+                    <div class="product-description">
+                      <br> <strong>الوصف : <br> </strong> `+ product.product_description_ar + `
+                      <br><br>
+                      <strong><br> طريقة الاستعمال:<br> </strong> `+ product.product_description2_ar + `
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        `
+              productList.append(listItem);
+            });
+            productList.append(`</div></div></div>`);
+          }
+        },
+        error: function (xhr, status, error) {
+          var productList = $('#productList');
+          productList.empty();
+          $('#productList').html('<p>Could not find any products.</p>');
+        }
+      });
+    }
+
+    $(document).ready(function () {
+      loadProducts()
+    });
+
+  </script>
+  <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section" style="direction: rtl;">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -47,20 +103,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  ">
             <li class="nav-item ">
-              <a class="nav-link" href="./index-ar.html" style="font-size: larger;">الرئيسية <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="./index-ar.html" style="font-size: larger;">الرئيسية <span
+                  class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./salon-set-ar.html"  style="font-size: larger;">
+              <a class="nav-link" href="./salon-set-ar.html" style="font-size: larger;">
                 مجموعة الصالون
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="./home-set-ar.html"  style="font-size: larger;">
-                مجموعة المنزل 
+              <a class="nav-link" href="./home-set-ar.html" style="font-size: larger;">
+                مجموعة المنزل
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="./Ingrediands-ar.html"  style="font-size: larger;">
+              <a class="nav-link" href="./Ingrediands-ar.html" style="font-size: larger;">
                 المكونات
               </a>
             </li>
@@ -69,40 +126,40 @@
 
           <div class="user_option">
             <form class="form-inline">
-                <button class="btn nav_search-btn" type="button">
-                  <a href="./home-set-products.html"  style="font-size: larger;">
+              <button class="btn nav_search-btn" type="button">
+                <a href="./home-set-products.html" style="font-size: larger;">
 
-                    <img src="./images/ukflag.png" alt="UK Flag" style="width: 24px; height: auto;"></a>
-                </button>
+                  <img src="./images/ukflag.png" alt="UK Flag" style="width: 24px; height: auto;"></a>
+              </button>
             </form>
-        </div>
-        
+          </div>
+
         </div>
       </nav>
-    </header>    <!-- end header section -->
+    </header> <!-- end header section -->
 
 
 
 
-    
 
-  <!--About Us section -->
 
-  <section class="why_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          مجموعة المنزل
-        </h2>
-        <p style="color:white; padding-top: 2
+    <!--About Us section -->
+
+    <section class="why_section layout_padding">
+      <div class="container">
+        <div class="heading_container heading_center">
+          <h2>
+            مجموعة المنزل
+          </h2>
+          <p style="color:white; padding-top: 2
         1%;"> علاج الشعر التالف بسبب العمليات الكيميائية لفرد الشعر </p>
-      </div>
-      <div class="row">
-       
-       
+        </div>
+        <div class="row">
+
+
         </div>
       </div>
-    </div>
+  </div>
   </section>
 
   <!--About Us section -->
@@ -115,242 +172,129 @@
       background-image: url('./images/cv.png');
       background-position: center;
       background-repeat: no-repeat;
-      background-color: black; /* Fallback color in case the image is not available */
-     
+      background-color: black;
+      /* Fallback color in case the image is not available */
+
     }
-  
+
     .product-cards-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: max-content; /* Adjust the maximum width as needed */
+      max-width: max-content;
+      /* Adjust the maximum width as needed */
       margin: 40px;
       padding-bottom: 10%;
       direction: rtl;
     }
-  
+
     .product-card {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 20px; /* Adjust padding as needed */
+      padding: 20px;
+      /* Adjust padding as needed */
       border-radius: 10px;
       margin-bottom: 20px;
     }
-  
+
     .product-image {
-      flex: 0 0 80%; /* Adjusted image column width for mobile view */
+      flex: 0 0 80%;
+      /* Adjusted image column width for mobile view */
       margin-bottom: 20px;
-      text-align: center; /* Center the image in mobile view */
+      text-align: center;
+      /* Center the image in mobile view */
     }
-  
+
     .product-image img {
-      width: 100%; /* Set the image width to 100% for mobile view */
-      max-width: 70%; /* Limit the maximum width for better responsiveness */
+      width: 100%;
+      /* Set the image width to 100% for mobile view */
+      max-width: 70%;
+      /* Limit the maximum width for better responsiveness */
       border-radius: 8px;
-      background-color: white; /* White background behind the product image */
-      display: block; /* Center the image horizontally in mobile view */
-      margin: 0 auto; /* Center the image horizontally in mobile view */
+      background-color: white;
+      /* White background behind the product image */
+      display: block;
+      /* Center the image horizontally in mobile view */
+      margin: 0 auto;
+      /* Center the image horizontally in mobile view */
     }
-  
+
     .product-details {
       flex: 1;
-      text-align: center; /* Center text in the product details for mobile view */
+      text-align: center;
+      /* Center text in the product details for mobile view */
     }
-  
+
     .product-name {
       font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 10px;
       text-align: right;
     }
-  
+
     .product-description {
       font-size: 1rem;
       color: white;
       text-align: right;
     }
-  
+
     .progress-line {
       position: absolute;
       top: 0;
-      left: 50%; /* Adjust the left position based on image column width */
+      left: 50%;
+      /* Adjust the left position based on image column width */
       height: 100%;
       width: 2px;
       background-color: #ccc;
     }
-  
+
     @media (min-width: 768px) {
       .product-card {
         flex-direction: row;
         text-align: left;
       }
-  
+
       .product-image {
-        flex: 0 0 40%; /* Restoring image column width for larger screens */
+        flex: 0 0 40%;
+        /* Restoring image column width for larger screens */
         margin-bottom: 0;
         margin-right: 20px;
       }
     }
   </style>
 
-</head>
+  </head>
 
-<body>
+  <body>
 
-  <div class="product-cards-container">
-    <div class="product-card" id="cl-shampoo">
-      <div class="product-image">
-        <img src="./images/p3.png" alt="Product Image">
-      </div>
-      <div class="product-details">
-        <div class="product-name">شامبو للشعر المعالج كيميائياً
-        </div>
-        <div class="product-description">
-          <br>  <br> </strong> يعمل الشامبو على تنظيف الشعر، ويزيد من مقاومته ومرونته وخاصة الشعر المتضرر من العمليات الكيميائية، مثل فرد الشعر والتمليس. بفضل مكوناته الفعالة، يقوم بتصحيح مسامية الشعر، والحفاظ على لونه، إلى جانب إضافة لمعاناً رائعاً من الجذور إلى الأطراف.
+    <div id="productList">
 
-<br><br>
-          <strong><br> طريقة الاستعمال<br> </strong> يُغسل الشعر بالشامبو مع تدليكه بلطف. يُشطف جيداً بالماء وتكرر العملية. 
-
-
-        </div>
-      </div>
     </div>
-  </div>
 
 
 
-  
+    <!-- end hero area -->
 
-  <div class="product-cards-container">
-    <div class="product-card" id="condationer">
-      <div class="product-image">
-        <img src="./images/p4.png" alt="Product Image">
-      </div>
-      <div class="product-details">
-        <div class="product-name">بلسم لحماية لون الشعر 
-
-        </div>
-        <div class="product-description">
-          <br>    <strong>
-             <br> </strong>لاستعادة حيوية الشعر التي فقدت بسبب العمليات الكيميائية مثل التمليس، والفرد. تم تطوير هذه التركيبة خصيصاً لاستعادة الشعر الذي تضرر بسبب العمليات الكيميائية، وترطيبه والحفاظ على لونه وتعمل على منح الشعر المقاومة واستعادة مرونته الطبيعية، وكذلك معالجة ألياف الشعر يوماً بعد يوم.
-             <br><br>
-          <strong><br> طريقة الاستعمال<br> </strong> قم بتوزيع البلسم على طول الشعر مع تدليكه بلطف. اتركه ليعمل من 3 إلى 5 دقائق ثم اشطفه جيداً لإزالة المنتج.
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="product-cards-container">
-    <div class="product-card" id="mask">
-      <div class="product-image">
-        <img src="./images/p7.png" alt="Product Image">
-      </div>
-      <div class="product-details" >
-        <div class="product-name">ماسك معالج لترطيب الشعر
-
-
-        </div>
-        <div class="product-description">
-          <br>    <strong>
-             <br> </strong>بتركيبة أمينية لزيادة سُمك الشعر ومعالجته من الأضرار مباشرةً من أول استخدام. التكنولوجيا المستخدمة في هذه التركيبة يمكنها زيادة القوة والمقاومة بشكل ملحوظ، إلى جانب تعزيز المرونة واللمعان والترطيب والحماية وإصلاح ملمس الشعر وتنعيمه.
-
-                 <br><br>
-          <strong><br> طريقة الاستعمال<br> </strong> بعد غسل الشعر، يوضع هذا الماسك، ويُدلك برفق. يُوزع ليغطي كل أقسام الشعر. يُترك ليعمل لمدة 10 إلى 15 دقيقة ثم يُشطف. ويُصفف الشعر حسب الرغبة.
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-  <div class="product-cards-container">
-    <div class="product-card" id="hair-serum">
-      <div class="product-image">
-        <img src="./images/p8.png" alt="Product Image">
-      </div>
-      <div class="product-details">
-        <div class="product-name">سيرم للتحكم بتجاعيد الشعر
-
-
-        </div>
-        <div class="product-description">
-          <br>الكافيار الأخضر غني بالفيتامينات والبروتينات والعناصر الغذائية، لذلك فهو يغذي الشعر ويمنحه لمعاناً ومظهراً صحياً. يساعد في التخلص من تقصف أطراف الشعر. تعمل الفيتامينات على تعزيز الدورة الدموية لفروة الرأس وتحفيز نمو الشعر. زيت المكاديميا يمنح شعركِ تغذية وترطيب. هذا السيرم يحمي الشعر من الحرارة ويتركه ناعماً وخالياً من التجعد.
-          <br><br>
-         <br>طريقة الاستعمال<br> </strong>استخدميه على الشعر الرطب أو الجاف. ضعي كمية على راحة يدك وافركي يديك معًا ثم ضعيه على الشعر. لا تشطفيه وصففيه كالمعتاد.
-
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <div class="product-cards-container">
-    <div class="product-card" id="d-condaitioner">
-      <div class="product-image">
-        <img src="./images/p6.png" alt="Product Image">
-      </div>
-      <div class="product-details">
-        <div class="product-name">بلسم لفك تشابك الشعر
-
-            </div>
-        <div class="product-description">
-          <br>    <strong> بخلاصة الكافيار الأخضر وزيت جوز الهند والكيراتين الطبيعي 
-            <br> </strong> من لديه الوقت لمحاربة تشابك الشعر وتلك العقد المزعجة التي تظهر في كل مرة تغسل فيها شعرك؟ بلسم فك التشابك بالكافيار الأخضر للشعر العادي والجاف. غني بالكافيار الأخضر الذي يمد الشعر بالفيتامينات والعناصر المغذية. زيت جوز الهند هو أفضل وسيلة لفك تشابك الشعر لأنه يصلح الألياف من الداخل ويغلف الشعر من الخارج لسهولة التمشيط وللحصول على شعر لامع. بالإضافة إلى الكيراتين الطبيعي الذي يمنحه النعومة.
-
-<br><br>
-          <strong><br> طريقة الاستعمال<br> </strong> يُرج جيداً قبل الاستخدام. قم برشه بكمية وفيرة من 5-10 سم من منتصف الشعر إلى الأطراف. يُستخدم على الشعر الرطب قبل التجفيف لحماية شعرك وترطيبه. للحصول على لمعان والشكل النهائي، يمكنك رشه بالتساوي على الشعر الجاف. لا يتم شطفه بل يُترك على الشعر. 
-
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-  <!-- end hero area -->
-
-  <!-- steps section -->
- <!-- salons section -->
- <section id="brand-collection">
-  <h2 style="text-align: center; ">الصالونات المعتمدة</h2>
-  <div class="container">
-      <div class="brand-container" style="text-align: center;">
+    <!-- steps section -->
+    <!-- salons section -->
+    <section id="brand-collection">
+      <h2 style="text-align: center; ">الصالونات المعتمدة</h2>
+      <div class="container">
+        <div class="brand-container" style="text-align: center;">
           <img src="images/salons (1).png" alt="phone" class="brand-image">
           <img src="images/salons (2).png " alt="phone" class="brand-image">
           <img src="images/salons (3).png" alt="phone" class="brand-image">
+        </div>
       </div>
-  </div>
-</section>
+    </section>
 
-<!-- end salons section -->
+    <!-- end salons section -->
 
 
-  <!-- end steps section -->
+    <!-- end steps section -->
 
     <!-- footer section -->
 
@@ -360,21 +304,22 @@
           <a href="https://www.facebook.com/people/Galeria-Professional/100088391574757/" target="_blank">
             <i class="fa fa-facebook" aria-hidden="true"></i>
           </a>
-      
+
           <a href="https://www.instagram.com/galeriaprofessional/" target="_blank">
             <i class="fa fa-instagram" aria-hidden="true"></i>
           </a>
-     
-          
+
+
           <a href="https://www.tiktok.com/@galeriaprofessional?lang=en" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512" style="fill: white; margin-right: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512"
+              style="fill: white; margin-right: 10px;">
               <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 
-              52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/>
+              52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
             </svg>
           </a>
         </div>
       </div>
-      
+
       <div class="info_container ">
         <div class="container">
           <div class="row">
@@ -383,26 +328,28 @@
                 ABOUT US
               </h6>
               <p>
-                Experts in hair straightening and treatment for damaged hair because of chemical processes. The results, in addition to combating opacity and dryness, are more stronger hair, as it acts directly on the hair.</p>
+                Experts in hair straightening and treatment for damaged hair because of chemical processes. The results,
+                in addition to combating opacity and dryness, are more stronger hair, as it acts directly on the hair.
+              </p>
             </div>
             <div class="col-md-6 col-lg-3">
               <div class="info_form ">
-               
-               
+
+
               </div>
             </div>
             <div class="col-md-6 col-lg-3">
               <h6>Important Links</h6>
               <ul style="line-height: 2;">
-                
-                <li > <a style="color:  white;" href="./index.html">Home</a></li>
-                <li > <a style="color:  white;" href="./salon-set.html">Salon Set</a></li>
-                <li > <a style="color:  white;" href="./home-set.html">Home Set</a></li>
-                <li > <a style="color:  white;" href="./Ingrediands.html">Ingredients</a></li>
-  
+
+                <li> <a style="color:  white;" href="./index.html">Home</a></li>
+                <li> <a style="color:  white;" href="./salon-set.html">Salon Set</a></li>
+                <li> <a style="color:  white;" href="./home-set.html">Home Set</a></li>
+                <li> <a style="color:  white;" href="./Ingrediands.html">Ingredients</a></li>
+
               </ul>
             </div>
-            
+
             <div class="col-md-6 col-lg-3">
               <h6>
                 CONTACT US
@@ -415,22 +362,22 @@
                 <a href="">
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   <span>02 21825000
-  
+
                   </span>
                 </a>
-  
+
                 <a href="">
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   <span>01222347852
-  
-  
-  
+
+
+
                   </span>
                 </a>
                 <a href="">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
                   <span> info@cristalegypt.com
-  
+
                   </span>
                 </a>
               </div>
@@ -438,21 +385,21 @@
           </div>
         </div>
       </div>
-  
-      
+
+
       <!-- footer section -->
-  
+
     </section>
-  
-  
 
 
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <script src="js/custom.js"></script>
 
-</body>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <script src="js/custom.js"></script>
+
+  </body>
 
 </html>
