@@ -334,39 +334,6 @@
 
 
 
-
-
-  <!-- ingrediants  section test 
-
-    <section class="saving_section" style="padding-top: 36%;">
-      <a href="./Ingrediands.html">
-        <div class="box" style="border-radius: 90px; position: relative; height: 100vh; background: url('images/caviar.jpg') center/cover no-repeat;">
-          <img src="/images/Green Caviar.png" alt="Green Caviar" style="position: absolute; top: -20%; left: 50%; transform: translateX(-50%); max-width: 100%; width: auto;">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-6">
-              </div>
-              <div class="col-lg-6">
-                <div class="detail-box">
-                  <div class="heading_container">
-                    <h2 style="color: black; padding-bottom: 8%;">
-                      <br>
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
-    </section>
-    
-
-
--->
-
-
-
   <!-- slider section -->
   <section id="slider">
 
@@ -420,18 +387,18 @@
             }
           </style>
 
-          <form action="#" style="direction: rtl;">
+          <form action="https://zerofrizz.co.uk/api/send-mail" method="post" name="frm-contact" style="direction: rtl;">
             <div>
-              <input type="text" placeholder="الأسم " />
+              <input name="sender" type="text" placeholder="الأسم " />
             </div>
             <div>
-              <input type="email" placeholder="البريد الألكنروني" />
+              <input name="email" type="email" placeholder="البريد الألكنروني" />
             </div>
             <div>
-              <input type="text" placeholder="رقم الهاتف" />
+              <input name="number" type="number" placeholder="رقم الهاتف" />
             </div>
             <div>
-              <input type="text" class="message-box" placeholder="رسالتك .." />
+              <input name="content" type="text" class="message-box" placeholder="رسالتك .." />
             </div>
             <div class="d-flex">
               <button>
@@ -439,6 +406,7 @@
               </button>
             </div>
           </form>
+          <div id="feedback"></div>
         </div>
       </div>
     </div>
@@ -560,7 +528,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
   <script src="js/custom.js"></script>
-
+  <script src="js/script.js"></script>
 </body>
 
 </html>
